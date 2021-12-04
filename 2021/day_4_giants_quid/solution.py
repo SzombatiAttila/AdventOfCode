@@ -3,7 +3,7 @@ def is_row_all_int(j):
 
 
 def is_column_all_int(idx, lines_arr):
-    return all(int == type(k) for k in [[i[j] for i in lines_arr] for j in range(5)][idx])
+    return all(isinstance(k, int) for k in [[i[j] for i in lines_arr] for j in range(5)][idx])
 
 
 def get_number(random_input, str_parts):
@@ -13,10 +13,10 @@ def get_number(random_input, str_parts):
     for inp in random_input.split(','):
         for idx_i, i in enumerate(str_parts):
             for j in i:
-                for idx, k in enumerate(j):
+                for idx_j, k in enumerate(j):
                     if k == str(inp):
-                        j[idx] = int(k)
-                    if is_row_all_int(j) or is_column_all_int(idx, i):
+                        j[idx_j] = int(k)
+                    if is_row_all_int(j) or is_column_all_int(idx_j, i):
                         if not solution_1_found:
                             solution_1_found = True
                             unmarked_sum = sum(sum(int(j) for j in k if isinstance(j, str)) for k in i)
