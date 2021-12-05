@@ -32,7 +32,7 @@ def get_unmarked_numbers(parts):
 
 
 def solutions():
-    with open('/Users/attila/Lensa/AdventOfCode/2021/day_4_giants_quid/input.csv', 'r') as file:
+    with open('input.csv', 'r') as file:
         file_input = [value for value in file.read().splitlines()]
         guesses_input = file_input[0]
         table = [i for i in file_input[1:] if i != '']
