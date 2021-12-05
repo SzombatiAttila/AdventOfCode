@@ -1,13 +1,12 @@
 def generate_matrix(length):
-    return [['.' for _ in range(length)] for i in range(length)]
-
+    return [['.' for _ in range(length)] for _ in range(length)]
 
 def same_point(point):
-    first = point[0].split(',')
-    second = point[1].split(',')
-    if first[0] == second[0]:
+    first_part = point[0].split(',')
+    second_part = point[1].split(',')
+    if first_part[0] == second_part[0]:
         return 'row'
-    elif first[1] == second[1]:
+    elif first_part[1] == second_part[1]:
         return 'col'
     else:
         return 'diagonal'
@@ -95,9 +94,11 @@ def solutions(solution_2):
                 if j != '.':
                     if int(j) >= 2:
                         get_dangerous_point_num += 1
-        print(get_dangerous_point_num)
+        return get_dangerous_point_num
 
 
 if __name__ == "__main__":
-    solutions(solution_2=False)
-    solutions(solution_2=True)
+    first = solutions(solution_2=False)
+    second = solutions(solution_2=True)
+    print(f'The solution for the first part is : {first}')
+    print(f'The solution for the second part is : {second}')
