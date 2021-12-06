@@ -6,14 +6,13 @@ def generate_life(life_input, prev_day):
 
 
 def solutions_slow():
+    max_life = 8
     with open('input.csv', 'r') as file:
         life_input = [int(i) for i in file.read().split(',')]
-        for day in range(1, 257):
+        for day in range(max_life):
             prev_day = life_input
             tmp_life_input = life_input
-            del life_input
             life_input = generate_life(tmp_life_input, prev_day)
-            del prev_day
         return life_input
 
 
