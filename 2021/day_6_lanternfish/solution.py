@@ -25,7 +25,7 @@ def solutions_fast(number_of_days):
         new_fish = fish_dict[0]
         for i in range(max_life):
             fish_dict[i] = fish_dict[i + 1]
-            fish_dict[i + 1] = 0
+        fish_dict[8] = 0
         fish_dict[6] += new_fish
         fish_dict[8] += new_fish
 
