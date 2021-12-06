@@ -35,6 +35,6 @@ def solutions_fast(number_of_days):
 
 if __name__ == "__main__":
     first = solutions_fast(number_of_days=80)
-    second = solutions_fast(256)
+    second = solutions_fast(number_of_days=256)
     print(f'The solution for the first part is : {first}')
     print(f'The solution for the second part is : {second}')
