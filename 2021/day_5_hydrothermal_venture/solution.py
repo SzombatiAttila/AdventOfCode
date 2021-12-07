@@ -81,9 +81,9 @@ def solutions(solution_2):
         file_input = [tuple(value.split(' -> ')) for value in file.read().splitlines()]
         matrix = generate_matrix(1000)
         get_dangerous_point_num = 0
-        for point in file_input:
-            if is_horizontal(point) or is_vertical(point) or (is_diagonal(point) and solution_2):
-                point_list = get_point_list(point)
+        for line in file_input:
+            if is_horizontal(line) or is_vertical(line) or (is_diagonal(line) and solution_2):
+                point_list = get_point_list(line)
                 for elem in point_list:
                     if matrix[elem[1]][elem[0]] != '.':
                         matrix[elem[1]][elem[0]] = str(int(matrix[elem[1]][elem[0]]) + 1)
