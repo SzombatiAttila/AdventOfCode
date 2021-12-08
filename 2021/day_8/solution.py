@@ -1,8 +1,5 @@
 def is_substring(one, two):
-    try:
-        return all(i in two for i in one)
-    except TypeError:
-        print(f'{one=} and {two=}')
+    return all(i in two for i in one)
 
 
 def set_easy_values(hash_map, easy_values):
@@ -32,8 +29,8 @@ def generate_hash_map(hash_t, elem):
             else:
                 hash_t[0] = x
         elif len(x) == 5:
-            asd = ''.join([i for i in sorted((set(x + hash_t[4])))])
-            if asd == hash_t[8]:
+            summed_and_cleaned = ''.join([i for i in sorted((set(x + hash_t[4])))])
+            if summed_and_cleaned == hash_t[8]:
                 hash_t[2] = x
             elif is_substring(hash_t[1], x):
                 hash_t[3] = x
