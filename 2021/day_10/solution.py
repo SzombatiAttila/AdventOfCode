@@ -1,4 +1,3 @@
-from collections import deque
 from statistics import median
 
 chunks_left_right = {"(": ")", "<": ">", "{": "}", "[": "]"}
@@ -38,17 +37,15 @@ def solutions():
                 good_elem.append(left_char_stack)
             left_char_stack = []
         solution2 = 0
-        res = []
+        result = []
         for x in good_elem:
             for z in x[::-1]:
-                solution2 *= 5
-                solution2 += solution2_hash_map[z]
+                solution2 = solution2 * 5 + solution2_hash_map[z]
             if solution2:
-                res.append(solution2)
+                result.append(solution2)
             solution2 = 0
-        solution2 = median(res)
         solution1 = sum(solution1_hash_map[i] for i in wrong_elem)
-        return solution1, solution2
+        return solution1, median(result)
 
 
 if __name__ == "__main__":
