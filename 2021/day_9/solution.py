@@ -28,10 +28,13 @@ def is_lowest(i, j, matrix):
 def rec(i, j, matrix):
     if matrix[i][j] < 9 and visited_points[i][j] is False:
         visited_points[i][j] = True
-        return 1 + rec(i - 1, j, matrix) + rec(i, j - 1, matrix) + rec(i + 1, j, matrix) + rec(i, j + 1,
-                                                                                               matrix)
+        yield 1
+        yield from rec(i - 1, j, matrix)
+        yield from rec(i, j - 1, matrix)
+        yield from rec(i + 1, j, matrix)
+        yield from rec(i, j + 1, matrix)
     else:
-        return 0
+        yield 0
 
 
 def solutions2():
@@ -43,7 +46,7 @@ def solutions2():
             for j in range(len(matrix[i])):
                 low_num = is_lowest(i, j, matrix)
                 if low_num or low_num == 0:
-                    get_nums = rec(i, j, matrix)
+                    get_nums = sum(i for i in rec(i, j, matrix))
                     arr.append(get_nums)
         return prod(sorted(arr)[::-1][:3])
 
