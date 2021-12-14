@@ -67,7 +67,7 @@ def solutions():
                 return 1 + 0.8 * t  # Zoom-out.
 
         def make_gif():
-            clips = [moviepy.ImageClip(i).set_duration(1).resize(resize_func(idx))
+            clips = [moviepy.ImageClip(i).set_duration(2).resize(resize_func(idx))
                      for idx, i in enumerate(filenames)]
             concat_clip = moviepy.concatenate_videoclips(clips, method="compose")
             concat_clip.write_gif("test.gif", fps=2)
