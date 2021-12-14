@@ -70,7 +70,7 @@ def solutions():
             clips = [moviepy.ImageClip(i).set_duration(2).resize(resize_func(idx))
                      for idx, i in enumerate(filenames)]
             concat_clip = moviepy.concatenate_videoclips(clips, method="compose")
-            concat_clip.write_gif("test.gif", fps=2)
+            concat_clip.write_gif("test.gif", fps=5)
 
         make_gif()
 
