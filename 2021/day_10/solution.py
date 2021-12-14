@@ -33,6 +33,7 @@ def solutions():
                     if chunks_right_left[c] != last_left:
                         found = True
                         wrong_elem.append(c)
+                        break
             if not found:
                 good_elem.append(left_char_stack)
             left_char_stack = []
